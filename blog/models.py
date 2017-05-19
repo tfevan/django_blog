@@ -15,4 +15,4 @@ class Post(models.Model):
 	body = models.TextField()
 	created_date = models.DateTimeField(default=timezone.now)
 	published_date = models.DateTimeField(blank=True, null=True)
-	tags = models.CharField(max_length=50)"""
+	tags = models.CharField(max_length=50)
