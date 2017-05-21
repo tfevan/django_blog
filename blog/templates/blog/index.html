@@ -1,0 +1,11 @@
+{% for post in posts %}
+
+<h1> {{ post.title }} </h1>
+<h5>{{ post.published_date }}</h5>
+
+<p>{{ post.body }}</p>
+
+<h4> {{ post.tags|linebreaksbr }} </h4>
+
+
+{% endfor %}
