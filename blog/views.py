@@ -6,7 +6,7 @@ from .models import Category, Post
 
 def home(request):
 	post_list = Post.objects.all()
-	pagination = Paginator(post_list, 2)
+	pagination = Paginator(post_list, 1)
 
 	page = request.GET.get('page')
 	try:
