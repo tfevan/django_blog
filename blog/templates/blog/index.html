@@ -67,7 +67,7 @@ Page : {{ posts.number }}
   
 
 
-{% for page in posts.paginator.page_range %}
+{% for page in page_range %}
 
 <li class="{% if posts.number == page %}active{% endif %}">
 

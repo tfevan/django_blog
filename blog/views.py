@@ -16,7 +16,14 @@ def home(request):
 	except EmptyPage:
 		posts = pagination.page(pagination.num_pages)
 
-	return render(request, 'blog/index.html', {'posts': posts}) 
+	index = posts.number - 1
+	max_index = len(pagination.page_range)
+	start_index = index - 3 if index >= 3 else 0
+	end_index = index + 3 if index <= max_index - 3 else max_index
+
+	page_range = pagination.page_range[start_index:end_index]
+
+	return render(request, 'blog/index.html', {'posts': posts, 'page_range': page_range}) 
 
 
 def detail(request, pk):
