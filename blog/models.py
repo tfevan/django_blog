@@ -13,7 +13,7 @@ class Post(models.Model):
 	category = models.ForeignKey(Category, on_delete=models.CASCADE)
 	title = models.CharField(max_length=250)
 	body = models.TextField()
-	image = models.FileField(upload_to='media/', max_length=100)
+	image = models.FileField(upload_to='media/', default='media/default.png', max_length=100)
 	created_date = models.DateTimeField(default=timezone.now)
 	published_date = models.DateTimeField(blank=True, null=True)
 
