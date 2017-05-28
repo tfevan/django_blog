@@ -1,3 +1,5 @@
+{% load staticfiles %}
+
 <style>
 	
 ul {
@@ -34,9 +36,13 @@ li.active {
 <h1> {{ post.id }} . {{ post.title }} </h1>
 <h5>{{ post.published_date }}</h5>
 
+<img src="{{ post.image.url }}" width="800px" height="400px">
+
+
+
 <p>{{ post.body|truncatewords:20 }}</p>
 
-
+<p>{{ post.category }}</p>
 
 {% endfor %}
 

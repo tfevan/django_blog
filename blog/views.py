@@ -5,7 +5,7 @@ from .models import Category, Post
 
 
 def home(request):
-	post_list = Post.objects.all()
+	post_list = Post.objects.order_by('-published_date')
 	pagination = Paginator(post_list, 1)
 
 	page = request.GET.get('page')
