@@ -5,7 +5,7 @@ from .models import Category, Post
 
 
 def home(request):
-	post_list = Post.objects.order_by('-published_date')
+	post_list = Post.objects.order_by('published_date')
 	pagination = Paginator(post_list, 1)
 
 	page = request.GET.get('page')
@@ -27,7 +27,7 @@ def home(request):
 
 
 def detail(request, pk):
-	return HttpResponse("hi %s" % pk)
+	return render(request, 'blog/detail.html')
 
 def result(request, pk):
 	return HttpResponse('l')
