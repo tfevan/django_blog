@@ -1,4 +1,5 @@
-from django.shortcuts import render
+
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from .models import Category, Post
@@ -26,8 +27,9 @@ def home(request):
 	return render(request, 'blog/index.html', {'posts': posts, 'page_range': page_range}) 
 
 
-def detail(request, pk):
-	return render(request, 'blog/detail.html')
+def detail(request, post_id):
+	posts = Post.objects.get(id='post.id')
+	return render(request, 'blog/detail.html',{'posts':posts})
 
 def result(request, pk):
 	return HttpResponse('l')
