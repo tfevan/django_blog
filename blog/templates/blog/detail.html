@@ -1,1 +1,20 @@
-{{ post_id }}
+Title: <strong>{{ post.title }}</strong> Published Date : <strong>{{ post.published_date|date:"l d M Y" }}</strong>
+
+<br />
+
+Post Category : <strong>{{ post.category }}</strong>
+
+<br />
+
+<img src="{{ post.image.url }}" width="250px" height="auto">
+
+<br />
+
+
+Body : {{ post.body }}
+
+
+
+
+
+

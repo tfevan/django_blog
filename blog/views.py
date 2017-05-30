@@ -28,8 +28,8 @@ def home(request):
 
 
 def detail(request, post_id):
-	posts = Post.objects.get(id='post.id')
-	return render(request, 'blog/detail.html',{'posts':posts})
+	post = Post.objects.get(pk=post_id)
+	return render(request, 'blog/detail.html',{'post':post})
 
 def result(request, pk):
 	return HttpResponse('l')
