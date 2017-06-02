@@ -2,6 +2,10 @@ from django.db import models
 
 from django.utils import timezone
 
+from django.db.models.signals import pre_delete
+from django.dispatch.dispatcher import receiver
+import os
+
 class Category(models.Model):
 	user = models.ForeignKey('auth.user')
 	title = models.CharField(max_length=20)
@@ -19,3 +23,7 @@ class Post(models.Model):
 
 	def __str__(self):
 		return self.title
+
+@receiver(pre_delete, sender=Post)
+def mymodel_delete(sender, instance, **kwargs):
+	instance.image.delete(False)

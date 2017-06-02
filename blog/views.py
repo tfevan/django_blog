@@ -38,6 +38,5 @@ def detail(request, post_id):
 
 
 
-
 def result(request, pk):
 	return HttpResponse('l')
