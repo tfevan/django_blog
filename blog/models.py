@@ -26,4 +26,7 @@ class Post(models.Model):
 
 @receiver(pre_delete, sender=Post)
 def mymodel_delete(sender, instance, **kwargs):
-	instance.image.delete(False)
+	if instance.image == "media/default.png":
+		pass
+	else:
+		instance.image.delete(False)
