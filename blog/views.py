@@ -24,7 +24,9 @@ def home(request):
 
 	page_range = pagination.page_range[start_index:end_index]
 
-	return render(request, 'blog/index.html', {'posts': posts, 'page_range': page_range}) 
+	categories = Category.objects.all()
+
+	return render(request, 'blog/index.html', {'posts': posts, 'page_range': page_range, 'categories':categories}) 
 
 
 def detail(request, post_id):

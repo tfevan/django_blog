@@ -4,7 +4,7 @@ from django.utils import timezone
 
 from django.db.models.signals import pre_delete
 from django.dispatch.dispatcher import receiver
-import os
+
 
 class Category(models.Model):
 	user = models.ForeignKey('auth.user')

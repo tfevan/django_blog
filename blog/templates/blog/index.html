@@ -94,3 +94,14 @@ Page : {{ posts.number }}
 
 </ul>
 
+<p>Categories :</p>
+
+{% for category in categories %}
+
+<ul>
+
+<li>{{ category.title }}</li>
+
+</ul>
+
+{% endfor %}
