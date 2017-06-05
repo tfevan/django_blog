@@ -8,7 +8,7 @@ from django.dispatch.dispatcher import receiver
 
 class Category(models.Model):
 	user = models.ForeignKey('auth.user')
-	title = models.CharField(max_length=20)
+	title = models.CharField(max_length=20, unique=True)
 
 	def __str__(self):
 		return self.title
@@ -26,7 +26,7 @@ class Post(models.Model):
 
 @receiver(pre_delete, sender=Post)
 def mymodel_delete(sender, instance, **kwargs):
-	if instance.image == "media/default.png":
+	if instance.image == "media/default.png" or instance.image == "":
 		pass
 	else:
 		instance.image.delete(False)
