@@ -42,3 +42,9 @@ def detail(request, post_id):
 
 def result(request, pk):
 	return HttpResponse('l')
+
+
+def category(request, category_id):
+	category = get_object_or_404(Category, pk=category_id)
+	
+	return render(request, 'blog/category.html', {'category':category})

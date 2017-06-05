@@ -1,0 +1,30 @@
+
+
+{% for cat in category.post_set.all %}
+
+
+<h1>{{ cat.title }}</h1>
+
+<h3>Published : {{ cat.published_date }}  </h3>
+
+<img src="{{ cat.image.url }}" width="400px" height="auto">
+
+<p>{{ cat.body|truncatewords:20 }}</p>
+
+
+
+
+
+
+
+{% endfor %}
+
+
+
+
+
+
+
+
+
+
