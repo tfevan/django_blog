@@ -65,6 +65,10 @@ Page : {{ posts.number }}
 
 <ul>
 
+
+
+
+
 {% if posts.has_previous %}
 
 	<li><a href="?page={{ posts.previous_page_number }}">Previous</a></li>
@@ -75,14 +79,19 @@ Page : {{ posts.number }}
 
 {% for page in page_range %}
 
-<li class="{% if posts.number == page %}active{% endif %}">
+	{% if posts.number == page %}
 
+		<li class="active"><span>{{ page }}</span></li>
 
+	{% else %}
 
-<a href="?page={{ page }}">{{ page }}</a></li>
+		<li><a href="?page={{ page }}">{{ page }}</a></li>
+
+	{% endif %}
 
 
 {% endfor %}
+
 
 
 {% if posts.has_next %}
