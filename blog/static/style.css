@@ -1,0 +1,25 @@
+
+ul {
+	list-style-type: none;
+	margin : auto;
+	width:  : 90px;
+}
+
+li { 
+	display :  inline-block;
+	border : 1px solid black;
+	padding : 10px;
+	border-radius: 5px;
+	text-decoration: none;
+  }
+
+li a {
+	text-decoration: none;
+	padding: 10px;
+}
+
+
+li.active {
+	color : black;
+	font-size: 2em;
+}
