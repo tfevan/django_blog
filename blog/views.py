@@ -45,6 +45,19 @@ def result(request, pk):
 
 
 def category(request, category_id):
-	category = get_object_or_404(Category, pk=category_id)
+	get = get_object_or_404(Category, id=category_id)
+
+	category = get.post_set.order_by('published_date')
+
+	paginator = Paginator(category, 1)
+
+	page = request.GET.get('page')
+	try:
+		posts = paginator.page(page)
+	except PageNotAnInteger:
+		posts = paginator.page(1)
+	except EmptyPage:
+		posts = paginator.page(paginator.num_pages)
+
 	
-	return render(request, 'blog/category.html', {'category':category})
+	return render(request, 'blog/category.html', {'posts':posts})
