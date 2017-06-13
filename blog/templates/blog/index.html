@@ -14,6 +14,37 @@
 
 </head>
 
+
+<!--Nav bar -->
+
+					
+
+					<nav class="navbar navbar-inverse">
+						<div class="container-fluid">
+
+							<div class="navbar-header">
+								<a class="navbar-brand" href="http://127.0.0.1:8000">Blog</a>
+							</div>
+
+							<ul class="nav navbar-nav">
+
+								{% for category in categories %}
+
+								<li><a href="{% url 'category' category.id %}">{{ category.title }}</a></li>
+
+								{% endfor %}
+
+							</ul>
+
+						</div>
+
+					</nav>
+
+					
+
+
+
+
 <div class="container">
 
 	<div class="row">
@@ -88,17 +119,49 @@
 
 		<div class="col-lg-4">
 
-					<p>Categories :</p>
+					<h2>Categories :</h2>
 
 					{% for category in categories %}
 
-					<ul>
+					<ul class="list-group">
 
-					<li><a href="{% url 'category' category.id %}">{{ category.title }}</a></li>
+					<li class="list-group-item"><a href="{% url 'category' category.id %}">{{ category.title }}</a></li>
 
 					</ul>
 
 					{% endfor %}
+
+
+<!-- Latest Post-->
+
+					<h2>Latest Post</h2>
+
+					<ul class="pager"></ul>
+
+					<ul id="popular" class="row">
+
+						{% for post in posts %}
+
+							<li class="span3 well">
+								<h4>{{ post.title }}</h4>
+								<p>{{ post.body|truncatewords:8 }}</p>
+								<a href="#" class="btn">Read More&raquo;</a>
+							</li>
+
+						{% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		</div>
 
@@ -106,3 +169,6 @@
 
 
 </div>
+
+
+yhyth
