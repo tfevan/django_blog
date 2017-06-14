@@ -26,7 +26,9 @@ def home(request):
 
 	categories = Category.objects.all()
 
-	return render(request, 'blog/index.html', {'posts': posts, 'page_range': page_range, 'categories':categories}) 
+	latest_list = Post.objects.order_by('published_date')[0:5]
+
+	return render(request, 'blog/index.html', {'latest_list': latest_list ,'posts': posts, 'page_range': page_range, 'categories':categories}) 
 
 
 def detail(request, post_id):
