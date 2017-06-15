@@ -1,0 +1,73 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+	<title>Django Blog</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="" />
+	<meta name="Talha Faisal" content="http://tfevan.github.com" />
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap-3.3.7-dist/css/bootstrap.min.css' %}">
+
+</head>
+<body>
+
+<!--Nav bar -->
+
+					
+
+					<nav class="navbar navbar-inverse">
+
+						<div class="container-fluid">
+
+						<div class="container">
+
+							<div class="navbar-header">
+								<a class="navbar-brand" href="http://127.0.0.1:8000">Talha F.</a>
+							</div>
+
+							<ul class="nav navbar-nav">
+
+								{% for category in categories %}
+
+								<li><a href="{% url 'category' category.id %}">{{ category.title }}</a></li>
+
+								{% endfor %}
+
+							</ul>
+
+						</div>
+
+						</div>
+
+					</nav>
+
+					
+{% block content %}
+
+{% endblock %}
+
+
+
+<!-- Footer -->
+
+
+
+<div class="panel-footer">
+
+	<p class="text-center"> &copy; Talha Faisal - 2017 </p>
+
+
+</div>
+
+
+
+
+
+
+
+</body>
+</html>

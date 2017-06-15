@@ -1,20 +1,58 @@
-Title: <strong>{{ post.title }}</strong> Published Date : <strong>{{ post.published_date|date:"l d M Y" }}</strong>
+{% extends 'blog/base.html' %}
 
-<br />
+{% block content %}
 
-Post Category : <strong>{{ post.category }}</strong>
+<div class="container">
 
-<br />
+	<div class="row">
 
-<img src="{{ post.image.url }}" width="250px" height="auto">
+		<div class="col-lg-6"
 
-<br />
+			Title: <strong>{{ post.title }}</strong> Published Date : <strong>{{ post.published_date|date:"l d M Y" }}</strong>
+
+			<br />
+
+			Post Category : <strong>{{ post.category }}</strong>
+
+			<br />
+
+			<img src="{{ post.image.url }}" width="250px" height="auto">
+
+			<br />
 
 
-Body : {{ post.body }}
+			Body : {{ post.body|linebreaksbr|safe }}
+
+		</div>
+
+<!-- sidebar -->
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+
+</div>
+
+{% endblock %}
 
 
