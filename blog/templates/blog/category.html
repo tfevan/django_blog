@@ -2,46 +2,23 @@
 
 {% block content %}
 
+<div class="container">
+
+	<div class="row">
+
+		<div class="col-lg-6"
 
 
-<style>
-	
-ul {
-	list-style-type: none;
-	margin : auto;
-	width:  : 90px;
-}
-
-li { 
-	display :  inline-block;
-	border : 1px solid black;
-	padding : 10px;
-	border-radius: 5px;
-	text-decoration: none;
-  }
-
-li a {
-	text-decoration: none;
-	padding: 10px;
-}
+				{% for post in posts %}
 
 
-li.active {
-	color : black;
-	font-size: 2em;
-}
+				<h1>{{ post.title }}</h1>
 
-</style>
-{% for post in posts %}
+				<h3>Published : {{ post.published_date }}  </h3>
 
+				<img src="{{ post.image.url }}" width="400px" height="auto">
 
-<h1>{{ post.title }}</h1>
-
-<h3>Published : {{ post.published_date }}  </h3>
-
-<img src="{{ post.image.url }}" width="400px" height="auto">
-
-<p>{{ post.body|truncatewords:20 }}</p>
+				<p>{{ post.body|truncatewords:20 }}</p>
 
 
 
@@ -49,34 +26,64 @@ li.active {
 
 
 
-{% endfor %}
+				{% endfor %}
+
+				<ul class="pagination pagination-lg">
+
+					{% if posts.has_next %}
+
+						<li><a href="?page={{ posts.next_page_number }}">Next</a></li>
+
+					{% endif %}
+
+
+					{% if posts.has_previous %}
+
+						<li><a href="?page={{ posts.previous_page_number }}">previous</a></li>
+
+					{% endif %}
+
+					{% for i in posts.paginator.page_range %}
+
+						{% if posts.number == i %}
+						<li class="active"><span>{{ i }}</span></li>
+						{% else %}
+						<li><a href="?page={{ i }}">{{ i }}</a></li>
+						{% endif %}
+					{% endfor %}
+
+
+				</ul>
+
+		</div>
+
+<!-- sidebar -->
 
 
 
-{% if posts.has_next %}
-
-	<li><a href="?page={{ posts.next_page_number }}">Next</a></li>
-
-{% endif %}
-
-
-{% if posts.has_previous %}
-
-	<li><a href="?page={{ posts.previous_page_number }}">previous</a></li>
-
-{% endif %}
-
-{% for i in posts.paginator.page_range %}
-
-	{% if posts.number == i %}
-	<li class="active"><span>{{ i }}</span></li>
-	{% else %}
-	<li><a href="?page={{ i }}">{{ i }}</a></li>
-	{% endif %}
-{% endfor %}
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+
+</div>
 
 
 {% endblock %}

@@ -63,3 +63,7 @@ def category(request, category_id):
 
 	
 	return render(request, 'blog/category.html', {'posts':posts})
+
+
+def contact(request):
+	return render(request, "blog/contact.html")

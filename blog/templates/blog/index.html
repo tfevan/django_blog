@@ -14,23 +14,35 @@
 
 			<h1> <a href="{% url 'detail' post.id %}">{{ post.title }}</a> </h1>
 
+
+
 			<img src="{{ post.image.url }}" width="740px" height="300px">
 
 
 
-			<p>{{ post.body|safe|truncatewords:20 }}</p>
+			<p>{{ post.body|safe|truncatewords:70 }}</p>
 
-			<h6><span>{{ post.published_date }}</span><span>Category : {{ post.category }} </span></h6>
+			
+			<h5>
+			<span class="label label-default">{{ post.published_date|date:"M d, Y" }}</span>
+
+			<span class="label label-default"><a href="{% url 'category' post.category.id %}">{{ post.category }}</a></span>
+
+			<span class="label label-default">10 comments</span>
+
+			 <a class="pull-right" href="{% url 'detail' post.id %}">Continue Reading...</a>
+			
+			</h5>
+			
 
 			{% endfor %}
 
 
-			
+			<br />
 
 		
 
 			<ul class="pagination pagination-lg">
-
 
 
 
@@ -80,13 +92,14 @@
 
 
 <!-- Latest Post-->
-
-					<h2>Recent Posts</h2>
+					
 
 					<ul class="pager"></ul>
 
 
 					<ul id="popular" class="row recent">
+
+						<h2>Popular Posts</h2>
 
 						{% for latest in latest_list %}
 
@@ -102,9 +115,7 @@
 
 						{% endfor %}
 
-					</ul>
-
-						
+					</ul>	
 
 
 <!-- Categories -->

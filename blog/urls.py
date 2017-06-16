@@ -9,6 +9,8 @@ urlpatterns = [
 
 	url(r'^result/(?P<pk>[0-9]+)/$', views.result, name='result'),
 
-	url(r'^category/(?P<category_id>[0-9]+)/$', views.category, name='category')
+	url(r'^category/(?P<category_id>[0-9]+)/$', views.category, name='category'),
+
+	url(r'^contact/$', views.contact, name='contact'),
 
 ]
