@@ -33,12 +33,13 @@
 			 <a class="pull-right" href="{% url 'detail' post.id %}">Continue Reading...</a>
 			
 			</h5>
-			
+	
+			<hr>
+
 
 			{% endfor %}
 
 
-			<br />
 
 		
 
@@ -86,41 +87,52 @@
 
 
 
-		<div class="col-lg-4">
+		<div class="col-lg-4 vertical">
 
 
 
 
 <!-- Latest Post-->
-					
+
 
 					<ul class="pager"></ul>
 
 
-					<ul id="popular" class="row recent">
+					
 
-						<h2>Popular Posts</h2>
+						<h4 class="popular">Popular Posts</h4>
+						
 
 						{% for latest in latest_list %}
 
-							<li class="span3 well">
-								<img src="{{ latest.image.url }}" class="pull-left" alt="" width="80px" height="80px" />
-								<h5><a href="{% url 'detail' latest.id %}">{{ latest.title }}</a></h5>
-								<p>{{ latest.body|truncatewords:8 }}</p>
+							
+
+						<div class="sidebar">
+					 			
+							<img class="pop-img" src="{{ latest.image.url }}" class="pull-left" alt="" width="70px" height="70px" />
+						
+						<div class="clear">
+							<h5><a href="{% url 'detail' latest.id %}">{{ latest.title }}</a></h5>
+									
+							<p>{{ latest.body|truncatewords:8 }}</p>
 								
-							</li>
+						</div>				
+						</div>		
+							
+								
+							
 
 
 
 
 						{% endfor %}
 
-					</ul>	
+						
 
 
 <!-- Categories -->
 
-					<h2>Categories :</h2>
+					<h4 class="popular">Categories</h4>
 
 					{% for category in categories %}
 
