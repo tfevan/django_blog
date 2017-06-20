@@ -62,7 +62,7 @@ def category(request, category_id):
 		posts = paginator.page(paginator.num_pages)
 
 	
-	return render(request, 'blog/category.html', {'posts':posts})
+	return render(request, 'blog/category.html', {'posts':posts, 'get': get})
 
 
 def contact(request):

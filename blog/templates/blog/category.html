@@ -2,7 +2,7 @@
 
 {% block title %}
 
-Category | Django Blog
+{{ get }} | Django Blog
 
 {% endblock %}
 
@@ -10,6 +10,9 @@ Category | Django Blog
 {% block content %}
 
 <div class="container">
+
+
+Category name : {{ get }}
 
 	<div class="row">
 
