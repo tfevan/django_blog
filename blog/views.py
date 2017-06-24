@@ -1,5 +1,8 @@
 
 from django.shortcuts import render, get_object_or_404
+
+from django.template import Template, RequestContext
+
 from django.http import HttpResponse
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from .models import Category, Post
@@ -67,3 +70,19 @@ def category(request, category_id):
 
 def contact(request):
 	return render(request, "blog/contact.html")
+
+
+def ip_address_processor(request):
+
+	return {'ip_address': request.META['REMOTE_ADDRR']}
+
+def client(request):
+	template = Template('{{ title }}: {{ ip_address }}')
+
+	context = RequestContext(request, {
+		'title': 'Your ip address',
+		}, [ip_address_processor]
+		)
+
+	return HttpResponse(template.render(context))
+
