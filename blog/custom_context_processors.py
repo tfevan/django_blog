@@ -14,7 +14,7 @@ def domain(request):
 
 def navbar(request):
 
-	nav = Category.objects.all()[0:3]
+	nav = Category.objects.all()[0:7]
 
 	return {
 			'navbar':nav

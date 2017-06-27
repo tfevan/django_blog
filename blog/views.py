@@ -27,11 +27,9 @@ def home(request):
 
 	page_range = pagination.page_range[start_index:end_index]
 
-	categories = Category.objects.all()
-
 	latest_list = Post.objects.order_by('published_date')[0:5]
 
-	return render(request, 'blog/index.html', {'latest_list': latest_list ,'posts': posts, 'page_range': page_range, 'categories':categories}) 
+	return render(request, 'blog/index.html', {'latest_list': latest_list ,'posts': posts, 'page_range': page_range}) 
 
 
 def detail(request, post_id):
